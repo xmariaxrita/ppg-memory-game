@@ -84,7 +84,6 @@ footer {
 }
 
 /* * Jogo */
-
 .grid {
   display: grid;
   gap: 15px;
@@ -133,4 +132,51 @@ footer {
   display: flex;
   filter: saturate(0);
   opacity: 0.7;
+}
+
+/* ! Responsividade */
+
+/* * 400px - 699px */
+@media screen and (min-width: 400px) and (max-width: 699px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* * 400px - 700px */
+@media screen and (min-width: 400px) and (max-width: 700px) {
+  footer {
+    font-size: 12px;
+  }
+
+  .logo {
+    margin: 40px 0 10px;
+  }
+
+  .tabuleiro {
+    padding: 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* * 700px - 799px */
+@media screen and (min-width: 700px) and (max-width: 799px) {
+  .container {
+    font-size: 13px;
+    align-items: center;
+  }
+
+  .info {
+    padding: 30px 0;
+  }
+}
+
+/* * +700 */
+@media screen and (min-width: 701px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
