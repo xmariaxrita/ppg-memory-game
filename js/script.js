@@ -1,5 +1,12 @@
 const grid = document.querySelector('.grid');
 const movimentos = document.querySelector('.movimentos');
+const pares = document.querySelector('.pares');
+
+let c1 = '';
+let c2 = '';
+let m = 0;
+let c = 0;
+let p = 0;
 
 const personagens = [
   'card-blossom',
@@ -17,21 +24,35 @@ const createElement = (tag, className) => {
   return elemento;
 }
 
-let c1 = '';
-let c2 = '';
-let m = 0;
-let c = 0;
+const criarCarta = (personagem) => {
+  const carta = createElement('div', 'carta');
+  const frente = createElement('div', 'lado frente');
+  const verso = createElement('div', 'lado verso');
+
+  frente.style.backgroundImage = `url('img/cards/${personagem}.png')`;
+
+  carta.appendChild(frente);
+  carta.appendChild(verso);
+
+  carta.addEventListener('click', virarCarta);
+  carta.setAttribute('data-carta', personagem);
+
+  return carta;
+}
+
+const carregarJogo = () => {
+  const duplicarCartas = [...personagens, ...personagens];
+
+  const shuffledArray = duplicarCartas.sort(() => Math.random() - 0.5);
+
+  shuffledArray.forEach((personagem) => {
+    const carta = criarCarta(personagem);
+    grid.appendChild(carta);
+  });
+}
 
 const atualizarM = () => {
   movimentos.innerHTML = m;
-}
-
-const checarFinal = () => {
-  const cartasDesativadas = document.querySelectorAll('carta-desativada');
-
-  if (cartasDesativadas.length === 12) {
-    alert(`Hallo Welt!`);
-  }
 }
 
 const checarCartas = () => {
@@ -41,6 +62,8 @@ const checarCartas = () => {
   if (p1 === p2) {
     c1.firstChild.classList.add('carta-desativada');
     c2.firstChild.classList.add('carta-desativada');
+
+    contarPares();
 
     c1 = '';
     c2 = '';
@@ -81,34 +104,25 @@ const virarCarta = ({ target }) => {
 
     checarCartas();
   }
-
 }
 
-const criarCarta = (personagem) => {
-  const carta = createElement('div', 'carta');
-  const frente = createElement('div', 'lado frente');
-  const verso = createElement('div', 'lado verso');
-
-  frente.style.backgroundImage = `url('img/cards/${personagem}.png')`;
-
-  carta.appendChild(frente);
-  carta.appendChild(verso);
-
-  carta.addEventListener('click', virarCarta);
-  carta.setAttribute('data-carta', personagem);
-
-  return carta;
+const contarPares = () => {
+  p++;
+  atualizarPares();
 }
 
-const carregarJogo = () => {
-  const duplicarCartas = [...personagens, ...personagens];
+const atualizarPares = () => {
+  pares.innerHTML = p;
+}
 
-  const shuffledArray = duplicarCartas.sort(() => Math.random() - 0.5);
+const checarFinal = () => {
+  const cartasDesativadas = document.querySelectorAll('.carta-desativada');
 
-  shuffledArray.forEach((personagem) => {
-    const carta = criarCarta(personagem);
-    grid.appendChild(carta);
-  });
+  if (cartasDesativadas.length === 12) {
+    setTimeout(() => {
+      alert("Parabéns, você ganhou!");
+    }, 500);
+  }
 }
 
 window.onload = () => {

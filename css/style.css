@@ -1,14 +1,60 @@
 @import url(https://db.onlinewebfonts.com/c/31d6999b03b69180254d0999127e1bc8?family=Unpack+W00+Fast);
 
+@font-face {
+  font-family: "Gopher Text";
+  src: url("../fonts/GopherText-Medium.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gopher Text";
+  src: url("../fonts/GopherText-MediumItalic.ttf");
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "Gopher Text";
+  src: url("../fonts/GopherText-Bold.ttf");
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-main {
+header {
   align-items: center;
-  background-image: url("../../ppg/img/board-background.jpg");
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 30px;
+  max-width: 800px;
+  padding: 20px;
+  width: 100%;
+}
+
+span {
+  color: #fff;
+  font-family: "Unpack W00 Fast";
+  font-size: 30px;
+  font-style: normal;
+  text-shadow: -2.5px 2.5px 0px black;
+}
+
+footer {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  margin: 60px 0 20px;
+}
+
+.tabuleiro {
+  align-items: center;
+  background-image: url("../img/board-background.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -17,38 +63,33 @@ main {
   width: 100%;
 }
 
-header {
+.container {
   align-items: center;
-  background-color: #eb6ca7c1;
-  border-radius: 5px;
+  font-family: "Gopher Text";
   display: flex;
+  padding: 10px;
+}
+
+.info {
+  background-color: #eb6ca7;
+  height: 70px;
+  justify-content: space-evenly;
+}
+
+.copy {
+  background-color: #081a4c;
+  color: #ffffff;
+  height: 50px;
   justify-content: center;
-  margin: 0 0 30px;
-  max-width: 800px;
-  padding: 20px;
-  width: 100%;
 }
 
-p {
-  color: #fff;
-  font-family: "Unpack W00 Fast";;
-  font-style: normal;
-  font-size: 30px;
-  text-shadow: -2.5px 2.5px 0px black;
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000; */
-}
-
-.header {
-  display: flex;
-  margin-top: 60px;
-}
+/* * Jogo */
 
 .grid {
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(6, 1fr);
-  margin: 0 auto;
+  margin: 0 auto 50px;
   max-width: 800px;
   width: 100%;
 }
@@ -80,7 +121,7 @@ p {
 
 .verso {
   backface-visibility: hidden;
-  background-image: url("../../ppg/img/card-back.png");
+  background-image: url("../img/card-back.png");
 }
 
 .virar-carta {
