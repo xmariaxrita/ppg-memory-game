@@ -29,7 +29,7 @@ const criarCarta = (personagem) => {
   const frente = createElement('div', 'lado frente');
   const verso = createElement('div', 'lado verso');
 
-  frente.style.backgroundImage = `url('img/cards/${personagem}.png')`;
+  frente.style.backgroundImage = `url('/static/img/${personagem}.png')`;
 
   carta.appendChild(frente);
   carta.appendChild(verso);

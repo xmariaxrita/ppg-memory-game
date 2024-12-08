@@ -2,19 +2,19 @@
 
 @font-face {
   font-family: "Gopher Text";
-  src: url("../fonts/GopherText-Medium.ttf");
+  src: url("/static/fonts/GopherText-Medium.ttf");
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gopher Text";
-  src: url("../fonts/GopherText-MediumItalic.ttf");
+  src: url("/static/fonts/GopherText-MediumItalic.ttf");
   font-style: oblique;
 }
 
 @font-face {
   font-family: "Gopher Text";
-  src: url("../fonts/GopherText-Bold.ttf");
+  src: url("/static/fonts/GopherText-Bold.ttf");
   font-weight: bold;
 }
 
@@ -54,7 +54,7 @@ footer {
 
 .tabuleiro {
   align-items: center;
-  background-image: url("../img/board-background.jpg");
+  background-image: url("/static/img/board-background.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -120,7 +120,7 @@ footer {
 
 .verso {
   backface-visibility: hidden;
-  background-image: url("../img/card-back.png");
+  background-image: url("/static/img/card-back.png");
 }
 
 .virar-carta {
