@@ -1,0 +1,114 @@
+@import url(https://db.onlinewebfonts.com/c/31d6999b03b69180254d0999127e1bc8?family=Unpack+W00+Fast);
+
+@font-face {
+  font-family: "Gopher Text";
+  src: url("/static/fonts/GopherText-Medium.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gopher Text";
+  src: url("/static/fonts/GopherText-MediumItalic.ttf");
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "Gopher Text";
+  src: url("/static/fonts/GopherText-Bold.ttf");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  margin: 60px 0 20px;
+}
+
+.tabuleiro {
+  align-items: center;
+  background-image: url("/static/img/board-background.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px 20px 50px;
+  width: 100%;
+}
+
+.container {
+  align-items: center;
+  font-family: "Gopher Text";
+  display: flex;
+  padding: 10px;
+}
+
+.info {
+  background-color: #eb6ca7;
+  height: 70px;
+  justify-content: space-evenly;
+}
+
+.copy {
+  background-color: #081a4c;
+  color: #ffffff;
+  height: 50px;
+  justify-content: center;
+}
+
+
+/* ! Responsividade */
+
+/* * 400px - 699px */
+@media screen and (min-width: 400px) and (max-width: 699px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* * 400px - 700px */
+@media screen and (min-width: 400px) and (max-width: 700px) {
+  footer {
+    font-size: 12px;
+  }
+
+  .logo {
+    margin: 40px 0 10px;
+  }
+
+  .tabuleiro {
+    padding: 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* * 700px - 799px */
+@media screen and (min-width: 700px) and (max-width: 799px) {
+  .container {
+    font-size: 13px;
+    align-items: center;
+  }
+
+  .info {
+    padding: 30px 0;
+  }
+}
+
+/* * +700 */
+@media screen and (min-width: 701px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
