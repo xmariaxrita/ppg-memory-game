@@ -1,12 +1,15 @@
 const grid = document.querySelector('.grid');
 const movimentos = document.querySelector('.movimentos');
 const pares = document.querySelector('.pares');
+const tempo = document.querySelector('.tempo');
 
 let c1 = '';
 let c2 = '';
 let m = 0;
 let c = 0;
 let p = 0;
+let t = false;
+let loop;
 
 const personagens = [
   'card-blossom',
@@ -22,7 +25,7 @@ const createElement = (tag, className) => {
   elemento.className = className;
 
   return elemento;
-}
+};
 
 const criarCarta = (personagem) => {
   const carta = createElement('div', 'carta');
@@ -38,7 +41,7 @@ const criarCarta = (personagem) => {
   carta.setAttribute('data-carta', personagem);
 
   return carta;
-}
+};
 
 const carregarJogo = () => {
   const duplicarCartas = [...personagens, ...personagens];
@@ -49,11 +52,18 @@ const carregarJogo = () => {
     const carta = criarCarta(personagem);
     grid.appendChild(carta);
   });
-}
+};
 
 const atualizarM = () => {
   movimentos.innerHTML = m;
-}
+};
+
+const começarTempo = () => {
+  loop = setInterval(() => {
+    const timer = +tempo.innerHTML;
+    tempo.innerHTML = timer + 1;
+  }, 1000);
+};
 
 const checarCartas = () => {
   const p1 = c1.getAttribute('data-carta');
@@ -69,7 +79,6 @@ const checarCartas = () => {
     c2 = '';
 
     checarFinal();
-
   } else {
     setTimeout(() => {
       c1.classList.remove('virar-carta');
@@ -79,11 +88,16 @@ const checarCartas = () => {
       c2 = '';
     }, 500);
   }
-}
+};
 
 const virarCarta = ({ target }) => {
   if (target.parentNode.className.includes('virar-carta')) {
     return;
+  }
+
+  if (!t) {
+    começarTempo();
+    t = true;
   }
 
   if (c1 === '') {
@@ -93,7 +107,6 @@ const virarCarta = ({ target }) => {
     m++;
 
     atualizarM();
-
   } else if (c2 === '') {
     target.parentNode.classList.add('virar-carta');
     c2 = target.parentNode;
@@ -104,28 +117,29 @@ const virarCarta = ({ target }) => {
 
     checarCartas();
   }
-}
+};
 
 const contarPares = () => {
   p++;
   atualizarPares();
-}
+};
 
 const atualizarPares = () => {
   pares.innerHTML = p;
-}
+};
 
 const checarFinal = () => {
   const cartasDesativadas = document.querySelectorAll('.carta-desativada');
 
   if (cartasDesativadas.length === 12) {
+    clearInterval(loop);
     setTimeout(() => {
       alert("Parabéns, você ganhou!");
     }, 500);
   }
-}
+};
 
 window.onload = () => {
   carregarJogo();
   atualizarM();
-}
+};
