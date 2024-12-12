@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const movimentos = document.querySelector('.movimentos');
 const pares = document.querySelector('.pares');
+const tempo = document.querySelector('.tempo');
 
 let c1 = '';
 let c2 = '';
@@ -53,6 +54,15 @@ const carregarJogo = () => {
 
 const atualizarM = () => {
   movimentos.innerHTML = m;
+}
+
+const começarTempo = () => {
+  this.loop = setInterval(() => {
+
+    const currentTime = +tempo.innerHTML;
+    tempo.innerHTML = currentTime + 1;
+
+  }, 1000);
 }
 
 const checarCartas = () => {
@@ -119,6 +129,8 @@ const checarFinal = () => {
   const cartasDesativadas = document.querySelectorAll('.carta-desativada');
 
   if (cartasDesativadas.length === 12) {
+    document.getElementById("tempo").value = tempo.innerHTML;
+    clearInterval(this.loop);
     setTimeout(() => {
       alert("Parabéns, você ganhou!");
     }, 500);
@@ -127,5 +139,6 @@ const checarFinal = () => {
 
 window.onload = () => {
   carregarJogo();
+  começarTempo();
   atualizarM();
 }
