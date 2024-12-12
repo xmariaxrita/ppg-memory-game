@@ -3,36 +3,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Powerpuff Girls - Memory Game</title>
-  <link rel="stylesheet" href="{% static "css/style.css" %}">
-  <link rel="shortcut icon" href="{% static "ico/favicon.ico" %}" type="image/x-icon">
-  <script src="{% static "js/script.js" %}" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Powerpuff Girls - Memory Game</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="shortcut icon" href="{% static "ico/favicon.ico" %}" type="image/x-icon">
+    <script src="{% static "js/script.js" %}" defer></script>
 </head>
 
 <body>
-  <main>
-    <div class="tabuleiro">
-      <div class="logo"><img src="{% static "svg/logo.svg" %}" alt="The Powerpuff Girls logo"></div>
-      <header>
-        <span>Moves: <span class="movimentos"></span></span>
-        <span>Matched pairs: <span class="pares">0</span></span>
-        <span>Time: <span class="tempo">00</span> s</span>
-      </header>
-      <div class="grid"></div>
-    </div>
-    <footer lang="pt-br">
-      <div class="container info">
-        <p><b>Aluna: </b>Maria Rita Silva Amador</p>
-        <p><b>Disciplina:</b> Programação para Internet (PPI)</p>
-        <p><b>Professor:</b> Marcelo Júnior</p>
-      </div>
-      <div class="container copy">
-        <p><b>IFRN</b> - <i>Campus</i> Santa Cruz | Todos os direitos reservados &copy;</p>
-      </div>
-    </footer>
-  </main>
+    <main>
+        <div class="tabuleiro">
+            <div class="logo"><img src="{% static "svg/logo.svg" %}" alt="The Powerpuff Girls logo"></div>
+            <header>
+                <span>Moves: <span class="movimentos"></span></span>
+                <span>Matched pairs: <span class="pares">0</span></span>
+                <span>Time: <span class="tempo">00</span> s</span>
+            </header>
+            <div class="grid"></div>
+            <span><a href="http:/ranking">Ranking</a></span>
+        </div>
+        <footer lang="pt-br">
+            <div class="container info">
+                <p><b>Aluna: </b>Maria Rita Silva Amador</p>
+                <p><b>Disciplina:</b> Programação para Internet (PPI)</p>
+                <p><b>Professor:</b> Marcelo Júnior</p>
+            </div>
+            <div class="container copy">
+                <p><b>IFRN</b> - <i>Campus</i> Santa Cruz | Todos os direitos reservados &copy;</p>
+            </div>
+        </footer>
+    </main>
 </body>
 
 </html>
